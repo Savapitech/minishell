@@ -42,6 +42,7 @@ char *my_revstr(char *);
 char my_strstr(char const *, char const *);
 int my_strcmp(char const *, char const *);
 int my_strncmp(char const *, char const *, int);
+char *my_strshift(char *, int);
 char *my_strupcase(char *);
 char *my_strlowcase(char *);
 char *my_strcapitalize(char *);

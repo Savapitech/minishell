@@ -9,8 +9,8 @@ NAME	=	libmy.a
 
 SRCS = my_compute_power_rec.c \
        my_compute_square_root.c \
-	   my_put_float.c \
-	   my_put_float_upper.c \
+	my_put_float.c \
+	my_put_float_upper.c \
        my_put_address.c \
        my_isneg.c \
        my_put_nbr.c \
@@ -27,15 +27,17 @@ SRCS = my_compute_power_rec.c \
        my_str_to_word_array.c \
        my_strcat.c \
        my_strcmp.c \
+       my_strncmp.c \
+       my_strshift.c \
        my_strcpy.c \
        my_strdup.c \
        my_strlen.c \
        my_strncat.c \
        my_strncpy.c \
        my_swap.c \
-	   my_printf.c \
-	   my_format.c \
-	   my_strpop.c
+	my_printf.c \
+	my_format.c \
+	my_strpop.c
 
 
 OBJS	=	$(SRCS:.c=.o)

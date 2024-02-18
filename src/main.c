@@ -5,8 +5,9 @@
 ** main
 */
 
-#include "../includes/mysh.h"
+#include "mysh.h"
 
+/*
 ParsedArgs parse_args(int argc, char **argv)
 {
     int i = 0;
@@ -62,5 +63,15 @@ int main(int argc, char **argv, char **env)
 
     execute_program(parsedArgs, env);
     free(parsedArgs.args);
+    return (0);
+}*/
+
+int main(int argc, char **argv, char **env)
+{
+    char **path = get_path(env);
+
+    for (int i = 0; path[i]; i++)
+        printf("Path %d : %s\n", i, path[i]);
+    free(path);
     return (0);
 }

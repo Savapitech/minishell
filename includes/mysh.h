@@ -7,6 +7,7 @@
 
 #ifndef MYSH_H_
     #define MYSH_H_
+    #include "../lib/my/lib.h"
     #include <stdio.h>
     #include <sys/wait.h>
     #include <unistd.h>
@@ -16,4 +17,6 @@ typedef struct {
     char **args;
     int count;
 } ParsedArgs;
+char **get_path(char **);
+void get_path2(char **, char *);
 #endif /* !MYSH_H_ */

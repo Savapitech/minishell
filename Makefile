@@ -7,11 +7,12 @@
 
 NAME	=	mysh
 
-SRCS = src/main.c
+SRCS = src/main.c \
+       src/utils/get_path.c
 
 CC = gcc
 
-CFLAGS = -Iinclude -Llib/my -lmy -Wextra -Wall
+CFLAGS = -Iincludes -Llib/my -lmy -Wextra -Wall
 
 all:  $(NAME)
 
