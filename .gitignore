@@ -1,0 +1,5 @@
+.idea
+mysh
+*.o
+*.gc*
+unit_tests
