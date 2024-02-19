@@ -13,10 +13,14 @@
     #include <unistd.h>
     #include <string.h>
     #include <stdlib.h>
+    #include <errno.h>
+    #define DEBUG_MODE 0
 typedef struct {
     char **args;
     int count;
-} ParsedArgs;
+} parsed_args_t;
 char **get_path(char **);
 void get_path2(char **, char *);
+void execute_program(parsed_args_t, char **, char **);
+parsed_args_t parse_args(char **);
 #endif /* !MYSH_H_ */
