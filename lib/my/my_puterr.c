@@ -13,7 +13,7 @@ int my_puterr(char const *str)
 
     count = 0;
     for (int i = 0; str[i] != '\0'; i++) {
-        my_putchar(str[i]);
+        write(2, &str[i], 1);
         count++;
     }
     return (count);

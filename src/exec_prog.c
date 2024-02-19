@@ -22,7 +22,7 @@ void execute_program(parsed_args_t parsedArgs, char **env, char **path)
             exec_result = execve(exec_path, parsedArgs.args, env);
         }
         if (exec_result == -1)
-            printf("Error: %s\n", strerror(errno));
+            my_puterr(my_strcat(my_strcat("Error: ", strerror(errno)), "\n"));
     } else if (pid > 0) {
         waitpid(pid, &status, 0);
     }
