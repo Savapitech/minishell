@@ -44,7 +44,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -c -Iinclude -Wall -Wextra -Werror
+CFLAGS = -c -Iinclude -Wextra -Wall -Werror
 
 all:  $(NAME)
 
