@@ -21,6 +21,7 @@ typedef struct {
 } parsed_args_t;
 char **get_path(char **);
 void get_path2(char **, char *);
-void exec_prog(char *, char **, char **);
+void exec_prog(char **, char **, char **);
 parsed_args_t parse_args(char **);
+char **parse_buffer(char *);
 #endif /* !MYSH_H_ */

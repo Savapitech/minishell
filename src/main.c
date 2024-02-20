@@ -12,6 +12,7 @@ int main(int argc, char **argv, char **env)
     char **path = get_path(env);
     char *buffer;
     size_t buf_size = 0;
+    char **args;
 
     (void)argc;
     (void)argv;
@@ -21,10 +22,8 @@ int main(int argc, char **argv, char **env)
     while (1) {
         my_printf("$> ");
         getline(&buffer, &buf_size, stdin);
-        buffer = my_strpop(buffer, 1);
-        if (my_strcmp(buffer, "exit") == 0)
-            break;
-        exec_prog(buffer, env, path);
+        args = parse_buffer(buffer);
+        exec_prog(args, env, path);
     }
     free(buffer);
     free(path);

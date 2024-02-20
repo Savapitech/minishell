@@ -10,7 +10,8 @@ NAME	=	mysh
 SRCS = src/main.c \
        src/utils/get_path.c \
 	   src/utils/parse_args.c \
-	   src/exec_prog.c
+	   src/exec_prog.c \
+	   src/utils/parse_buffer.c
 
 CC = gcc
 
