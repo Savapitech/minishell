@@ -10,23 +10,14 @@
 int main(int argc, char **argv, char **env)
 {
     char **path = get_path(env);
-    char *buffer;
     size_t buf_size = 0;
-    char **args;
 
-    if (isatty(STDIN_FILENO)) {
-        while (1) {
-            my_printf("$> ");
-            getline(&buffer, &buf_size, stdin);
-            args = parse_buffer(buffer);
-            exec_prog(args, env, path);
-        }
-    } else {
-        getline(&buffer, &buf_size, stdin);
-        args = parse_buffer(buffer);
-        exec_prog(args, env, path);
-    }
-    free(buffer);
+    (void)argc;
+    (void)argv;
+    if (isatty(STDIN_FILENO))
+        launch_shell_tty(path, buf_size, env);
+    else
+        launch_shell_notty(path, buf_size, env);
     free(path);
     return (0);
 }

@@ -24,4 +24,6 @@ void get_path2(char **, char *);
 void exec_prog(char **, char **, char **);
 parsed_args_t parse_args(char **);
 char **parse_buffer(char *);
+void launch_shell_tty(char **, size_t, char **);
+void launch_shell_notty(char **, size_t, char **);
 #endif /* !MYSH_H_ */

@@ -4,3 +4,4 @@ mysh
 *.o
 *.gc*
 unit_tests
+testcmd
