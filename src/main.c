@@ -14,13 +14,14 @@ int main(int argc, char **argv, char **env)
     size_t buf_size = 0;
     char **args;
 
-    (void)argc;
-    (void)argv;
-    if (DEBUG_MODE == 1)
-        for (int i = 0; path[i]; i++)
-            my_printf("Path %d : %s\n", i, path[i]);
-    while (1) {
-        my_printf("$> ");
+    if (isatty(STDIN_FILENO)) {
+        while (1) {
+            my_printf("$> ");
+            getline(&buffer, &buf_size, stdin);
+            args = parse_buffer(buffer);
+            exec_prog(args, env, path);
+        }
+    } else {
         getline(&buffer, &buf_size, stdin);
         args = parse_buffer(buffer);
         exec_prog(args, env, path);

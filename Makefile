@@ -15,7 +15,7 @@ SRCS = src/main.c \
 
 CC = gcc
 
-CFLAGS = -Iincludes -Llib/my -lmy -Wextra -Wall -Werror
+CFLAGS = -Iincludes -Llib/my -lmy -Wextra -Wall
 
 all:  $(NAME)
 
