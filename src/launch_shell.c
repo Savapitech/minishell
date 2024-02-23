@@ -22,6 +22,8 @@ void launch_shell_tty(
         if (getresult == -1)
             break;
         args = parse_buffer(buffer);
+        if (my_strcmp("exit", args[0]) == 0)
+            exit(0);
         exec_prog(args, env, path);
     }
     free(buffer);
@@ -41,6 +43,8 @@ void launch_shell_notty(
         if (getresult == -1)
             break;
         args = parse_buffer(buffer);
+        if (my_strcmp("exit", args[0]) == 0)
+            exit(0);
         exec_prog(args, env, path);
     }
     free(buffer);
