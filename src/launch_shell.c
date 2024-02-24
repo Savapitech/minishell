@@ -19,6 +19,8 @@ void launch_shell_tty(
     while (1) {
         my_printf("$> ");
         getresult = getline(&buffer, &buf_size, stdin);
+        if (my_str_isalpha(buffer) == 0 && my_str_isdigit(buffer) == 0)
+            continue;
         if (getresult == -1)
             break;
         args = parse_buffer(buffer);
@@ -42,6 +44,8 @@ void launch_shell_notty(
         getresult = getline(&buffer, &buf_size, stdin);
         if (getresult == -1)
             break;
+        if (my_str_isalpha(buffer) == 0 && my_str_isdigit(buffer) == 0)
+            continue;
         args = parse_buffer(buffer);
         if (my_strcmp("exit", args[0]) == 0)
             exit(0);

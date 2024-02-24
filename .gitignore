@@ -12,3 +12,5 @@ mysh
 *.gc*
 unit_tests
 testcmd
+tester.sh
+tests
