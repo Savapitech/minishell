@@ -23,7 +23,7 @@ void exec_prog(char **args,
             exec_result = execve(exec_path, args, env);
         }
         if (exec_result == -1)
-            my_puterr(my_strcat(my_strcat("Error: ", strerror(errno)), "\n"));
+            my_printf("%s: Command not found.\n", args[0]);
     } else if (pid > 0) {
         waitpid(pid, &status, 0);
     }
