@@ -26,5 +26,6 @@ void exec_prog(char **args,
             my_printf("%s: Command not found.\n", args[0]);
     } else if (pid > 0) {
         waitpid(pid, &status, 0);
+        print_status(WIFSIGNALED(status));
     }
 }

@@ -12,7 +12,8 @@ SRCS = src/main.c \
 	   src/utils/parse_args.c \
 	   src/exec_prog.c \
 	   src/utils/parse_buffer.c \
-	   src/launch_shell.c
+	   src/launch_shell.c \
+	   src/print_status.c
 
 CC = gcc
 
