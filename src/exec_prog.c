@@ -15,6 +15,7 @@ void exec_prog(char **args,
     pid_t pid = fork();
     char *exec_path;
     int exec_result;
+    int exec_result2;
 
     if (pid == 0) {
         for (int i = 0; path[i]; i++) {
@@ -23,6 +24,8 @@ void exec_prog(char **args,
             exec_result = execve(exec_path, args, env);
         }
         if (exec_result == -1)
+            exec_result2 = execve(args[0], args, env);
+        if (exec_result2 == -1)
             my_printf("%s: Command not found.\n", args[0]);
     } else if (pid > 0) {
         waitpid(pid, &status, 0);
