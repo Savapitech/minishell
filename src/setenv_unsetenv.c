@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2024
-** shell
+** B-PSU-200-REN-2-1-minishell1-savinien.petitjean
 ** File description:
 ** setenv_unsetenv.c
 */
