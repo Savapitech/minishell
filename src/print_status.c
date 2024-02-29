@@ -10,5 +10,5 @@
 void print_status(int status)
 {
     if (status != 0)
-        my_printf("Segmentation fault\n");
+        write(2, "Segmentation fault\n", 19);
 }
