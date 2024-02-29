@@ -31,4 +31,5 @@ char **my_setenv(char **, char *, char *);
 char **my_unsetenv(char **, char *);
 int execute_cd(char **, char **);
 char *my_getenv(char *, char **);
+int my_printenv(char **, char **, char **);
 #endif /* !MYSH_H_ */

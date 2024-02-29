@@ -15,16 +15,16 @@ int handle_command(char **args, char ***env, char **path, char **env2)
         return execute_cd(args, env2);
     }
     if (my_strcmp("setenv", args[0]) == 0) {
-        if (args[1] == NULL) {
-            return my_printf("unsetenv: Too few arguments.\n");
-        }
+        if (args[1] == NULL)
+            return my_printenv(args, env2, path);
         *env = my_setenv(*env, args[1], args[2]);
+        return 0;
     }
     if (my_strcmp("unsetenv", args[0]) == 0) {
-        if (args[1] == NULL) {
+        if (args[1] == NULL)
             return my_printf("unsetenv: Too few arguments.\n");
-        }
         *env = my_unsetenv(*env, args[1]);
+        return 0;
     } else
         exec_prog(args, *env, path);
     return 0;
