@@ -13,7 +13,10 @@ SRCS = src/main.c \
 	   src/exec_prog.c \
 	   src/utils/parse_buffer.c \
 	   src/launch_shell.c \
-	   src/print_status.c
+	   src/print_status.c \
+	   src/setenv_unsetenv.c \
+	   src/cd_cmd.c \
+	   src/utils/get_env.c
 
 CC = gcc
 

@@ -7,10 +7,30 @@
 
 #include "mysh.h"
 
-void launch_shell_tty(
-    char **path,
-    size_t buf_size,
-    char **env)
+int handle_command(char **args, char ***env, char **path, char **env2)
+{
+    if (my_strcmp("exit", args[0]) == 0)
+        exit(0);
+    if (my_strcmp("cd", args[0]) == 0) {
+        return execute_cd(args, env2);
+    }
+    if (my_strcmp("setenv", args[0]) == 0) {
+        if (args[1] == NULL) {
+            return my_printf("unsetenv: Too few arguments.\n");
+        }
+        *env = my_setenv(*env, args[1], args[2]);
+    }
+    if (my_strcmp("unsetenv", args[0]) == 0) {
+        if (args[1] == NULL) {
+            return my_printf("unsetenv: Too few arguments.\n");
+        }
+        *env = my_unsetenv(*env, args[1]);
+    } else
+        exec_prog(args, *env, path);
+    return 0;
+}
+
+void launch_shell_tty(char **path, size_t buf_size, char **env)
 {
     int getresult;
     char *buffer;
@@ -24,17 +44,12 @@ void launch_shell_tty(
         if (getresult == -1)
             break;
         args = parse_buffer(buffer);
-        if (my_strcmp("exit", args[0]) == 0)
-            exit(0);
-        exec_prog(args, env, path);
+        handle_command(args, &env, path, env);
     }
     free(buffer);
 }
 
-void launch_shell_notty(
-    char **path,
-    size_t buf_size,
-    char **env)
+void launch_shell_notty(char **path, size_t buf_size, char **env)
 {
     int getresult;
     char *buffer;
@@ -47,9 +62,7 @@ void launch_shell_notty(
         if (my_str_isalpha(buffer) == 0 && my_str_isdigit(buffer) == 0)
             continue;
         args = parse_buffer(buffer);
-        if (my_strcmp("exit", args[0]) == 0)
-            exit(0);
-        exec_prog(args, env, path);
+        handle_command(args, &env, path, env);
     }
     free(buffer);
 }
