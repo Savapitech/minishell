@@ -75,10 +75,10 @@ char **my_unsetenv(char **env, char *key)
     char **new_env;
 
     i = find_key(env, key);
-    if (i != -1) {
-        free(env[i]);
-        shift_env(env, i);
-    }
+    if (i == -1)
+        return env;
+    free(env[i]);
+    shift_env(env, i);
     new_env = malloc(sizeof(char *) * (i + 1));
     for (int k = 0; k < i; k++)
         new_env[k] = env[k];
