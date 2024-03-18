@@ -16,7 +16,8 @@ SRCS = src/main.c \
 	   src/print_status.c \
 	   src/setenv_unsetenv.c \
 	   src/cd_cmd.c \
-	   src/utils/get_env.c
+	   src/utils/get_env.c \
+	   src/env_cmd.c
 
 CC = gcc
 

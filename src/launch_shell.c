@@ -11,6 +11,8 @@ int handle_command(char **args, char ***env, char **path, char **env2)
 {
     if (my_strcmp("exit", args[0]) == 0)
         exit(0);
+    if (my_strcmp("env", args[0]) == 0)
+        return execute_env(env2);
     if (my_strcmp("cd", args[0]) == 0) {
         return execute_cd(args, env2);
     }

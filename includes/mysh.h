@@ -32,4 +32,5 @@ char **my_unsetenv(char **, char *);
 int execute_cd(char **, char **);
 char *my_getenv(char *, char **);
 int my_printenv(char **, char **, char **);
+int execute_env(char **);
 #endif /* !MYSH_H_ */
