@@ -34,7 +34,7 @@ int handle_command(char **args, char ***env, char **path, char **env2)
 void launch_shell_tty(char **path, size_t buf_size, char **env)
 {
     int getresult;
-    char *buffer;
+    char *buffer = NULL;
     char **args;
 
     while (1) {
@@ -48,12 +48,13 @@ void launch_shell_tty(char **path, size_t buf_size, char **env)
         handle_command(args, &env, path, env);
     }
     free(buffer);
+    free(args);
 }
 
 void launch_shell_notty(char **path, size_t buf_size, char **env)
 {
     int getresult;
-    char *buffer;
+    char *buffer = NULL;
     char **args;
 
     while (1) {
@@ -66,4 +67,5 @@ void launch_shell_notty(char **path, size_t buf_size, char **env)
         handle_command(args, &env, path, env);
     }
     free(buffer);
+    free(args);
 }
