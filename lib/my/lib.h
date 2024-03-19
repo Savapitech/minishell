@@ -60,4 +60,5 @@ char *my_strcat(char *, char const *);
 char *my_strncat(char *, char const *, int);
 char *my_strdup(char const *);
 char *my_strpop(char *, int);
+int my_char_isalpha(char);
 #endif /* LIB_H_ */

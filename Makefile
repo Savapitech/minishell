@@ -15,6 +15,7 @@ SRCS = src/main.c \
 	   src/launch_shell.c \
 	   src/print_status.c \
 	   src/setenv_unsetenv.c \
+	   src/setenv_unsetenv2.c \
 	   src/cd_cmd.c \
 	   src/utils/get_env.c \
 	   src/env_cmd.c
