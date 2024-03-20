@@ -9,7 +9,7 @@
 
 char **get_path(char **env)
 {
-    char *fpath;
+    char *fpath = NULL;
     char **path;
 
     for (int i = 0; env[i]; i++) {

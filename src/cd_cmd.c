@@ -14,6 +14,7 @@ int execute_cd(char **args, char **env)
 
     if (path == NULL || my_strcmp(path, "~") == 0) {
         path = my_getenv("HOME", env);
+        printf("path %s\n", path);
         if (path == NULL)
             path = "/";
     }

@@ -67,5 +67,4 @@ void launch_shell_notty(char **path, size_t buf_size, char **env)
         handle_command(args, &env, path, env);
     }
     free(buffer);
-    free(args);
 }

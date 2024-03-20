@@ -10,11 +10,11 @@
 char *my_strshift(char *str, int x)
 {
     int i;
-    int len;
+    int len = my_strlen(str);
+    char *new_str = malloc((len + 1) * sizeof(char));
 
-    len = my_strlen(str);
     for (i = 0; i < len - x; i++)
-        str[i] = str[i + x];
-    str[len - x] = '\0';
-    return str;
+        new_str[i] = str[i + x];
+    new_str[len - x] = '\0';
+    return new_str;
 }
