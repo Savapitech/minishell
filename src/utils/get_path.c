@@ -15,7 +15,7 @@ char **get_path(char **env)
     for (int i = 0; env[i]; i++) {
         if (my_strncmp(env[i], "PATH=", 5) == 0) {
             fpath = env[i];
-            my_strshift(fpath, 5);
+            fpath = my_strshift(fpath, 5);
             path = malloc(sizeof(char *) * (my_strlen(fpath) + 1));
             get_path2(path, fpath);
             break;

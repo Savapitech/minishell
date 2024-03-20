@@ -17,7 +17,7 @@ int handle_command(char **args, char ***env, char **path, char **env2)
         return execute_cd(args, env2);
     if (my_strcmp("setenv", args[0]) == 0) {
         if (args[1] == NULL)
-            return my_printenv(args, env2, path);
+            return execute_env(env2);
         *env = verif_setenv(*env, args[1], args[2]);
         return 0;
     }

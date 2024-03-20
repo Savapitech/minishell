@@ -21,10 +21,3 @@ char *my_getenv(char *name, char **env)
     }
     return NULL;
 }
-
-int my_printenv(char **args, char **env, char **path)
-{
-    args[0] = "env";
-    exec_prog(args, env, path);
-    return 0;
-}
