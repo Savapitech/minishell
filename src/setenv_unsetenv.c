@@ -63,24 +63,32 @@ int find_key(char **env, char *key)
     return -1;
 }
 
-void shift_env(char **env, int index)
+int count_env(char **env)
 {
-    for (int j = index; env[j]; j++)
-        env[j] = env[j + 1];
+    int count = 0;
+
+    while (env[count]) {
+        count++;
+    }
+    return count;
 }
 
 char **my_unsetenv(char **env, char *key)
 {
-    int i;
-    char **new_env;
+    int i = 0;
+    int j = 0;
+    int total = count_env(env);
+    char **new_env = malloc(sizeof(char *) * (total + 1));
 
     i = find_key(env, key);
     if (i == -1)
         return env;
-    shift_env(env, i);
-    new_env = malloc(sizeof(char *) * (i + 1));
-    for (int k = 0; k < i; k++)
-        new_env[k] = env[k];
-    new_env[i] = NULL;
+    for (int k = 0; k < total; k++) {
+        if (k != i) {
+            new_env[j] = env[k];
+            j++;
+        }
+    }
+    new_env[j] = NULL;
     return new_env;
 }
