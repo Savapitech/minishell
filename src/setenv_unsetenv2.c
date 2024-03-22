@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2024
 ** B-PSU-200-REN-2-1-minishell1-savinien.petitjean
 ** File description:
-** setenv_unsetenv.c
+** setenv_unsetenv2.c
 */
 
 #include "mysh.h"
