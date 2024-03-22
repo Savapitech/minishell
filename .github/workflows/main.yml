@@ -84,6 +84,11 @@ jobs:
           git config --global user.name "SavaletDev"
           git remote add epitech "${{ secrets.GH_TARGET_REPO }}"
 
+      - name: Reset repo
+        run: |
+          git update-ref -d HEAD
+          git gc --aggressive --prune=all
+
       - name: Commit
         run: |
           git add .
