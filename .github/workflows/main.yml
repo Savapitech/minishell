@@ -7,6 +7,14 @@ on:
     branches: [ master ]
   workflow_dispatch:
 
+env:
+  GH_PUB_KEY:
+    github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+  GH_BOT_ACC_EMAIL:
+    41898282+github-actions[bot]@users.noreply.github.com
+  GH_BOT_ACC_NAME:
+    github-actions[bot]
+
 jobs:
   check_the_repository_state:
     runs-on: ubuntu-latest
@@ -20,6 +28,17 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ steps.branch-names.outputs.head_ref_branch }}
+
+      - name: Setup GIT
+        run: |
+          git config --local user.email $GH_BOT_ACC_EMAIL
+          git config --local user.name $GH_BOT_ACC_NAME
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.GH_SSH_PRIVATE_KEY }}
+          known_hosts: $GH_PUB_KEY
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v4
@@ -39,7 +58,6 @@ jobs:
 
       - name: Check for banned functions
         run: |
-          nix build
           nix run github:Dawoox/efc -- \
             ./mysh \
             ./afunc.txt
