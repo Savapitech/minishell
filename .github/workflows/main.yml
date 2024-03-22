@@ -61,3 +61,35 @@ jobs:
           nix run github:Dawoox/efc -- \
             ./mysh \
             ./afunc.txt
+
+  sync_repository:
+    needs: [ check_the_repository_state ]
+    if: ${{ !github.event.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.GH_SSH_PRIVATE_KEY }}
+          known_hosts: $GH_PUB_KEY
+
+      - name: Setup GIT
+        run: |
+          git config --global user.email "savinien.petitjean@gmail.com"
+          git config --global user.name "SavaletDev"
+          git remote add epitech "${{ secrets.GH_TARGET_REPO }}"
+
+      - name: Commit
+        run: |
+          git add .
+          git commit -m \
+            "[CI] (${{ github.event.head_commit.message }})"
+
+      - name: Push to Epitech
+        run: |
+          git push epitech main --force
