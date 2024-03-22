@@ -10,7 +10,7 @@
 parsed_args_t parse_args(char **argv)
 {
     int i = 0;
-    char **args = malloc(sizeof(char *) * (strlen(argv[1]) + 1));
+    char **args = malloc(sizeof(char *) * (my_strlen(argv[1]) + 1));
     char *token = strtok(argv[1], " ");
     parsed_args_t parsedArgs;
 

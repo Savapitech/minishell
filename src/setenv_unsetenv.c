@@ -67,9 +67,8 @@ int count_env(char **env)
 {
     int count = 0;
 
-    while (env[count]) {
+    while (env[count])
         count++;
-    }
     return count;
 }
 
