@@ -97,4 +97,4 @@ jobs:
 
       - name: Push to Epitech
         run: |
-          git push epitech main --force
+          git push epitech master --force
