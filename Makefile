@@ -27,7 +27,7 @@ CFLAGS = -Iincludes -Llib/my -lmy -Wextra -Wall -Werror
 all:  $(NAME)
 
 $(NAME):
-	cd lib/my && make -j16
+	cd lib/my && make
 	$(CC) $(SRCS) -o $(NAME) $(CFLAGS)
 
 clean:
