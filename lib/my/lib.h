@@ -61,5 +61,7 @@ char *my_strncat(char *, char const *, int);
 char *my_strdup(char const *);
 char *my_strpop(char *, int);
 int my_char_isalpha(char);
+int my_char_isnum(char);
+int my_str_isalphanum(char *);
 void my_freestr(char **);
 #endif /* LIB_H_ */

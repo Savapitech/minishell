@@ -41,7 +41,9 @@ SRCS = my_compute_power_rec.c \
        my_str_isalpha.c \
        my_str_isdigit.c \
        my_char_isalpha.c \
-       my_freestr.c
+       my_char_isnum.c \
+       my_freestr.c \
+       my_str_isalphanum.c
 
 
 OBJS	=	$(SRCS:.c=.o)
