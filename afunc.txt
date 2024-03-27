@@ -30,3 +30,6 @@ getpid
 strerror
 perror
 strsignal
+pipe
+dup
+dup2
