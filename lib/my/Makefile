@@ -50,7 +50,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -c -Iinclude -Wextra -Wall -Werror
+CFLAGS = -c -Iinclude -Wextra -Wall
 
 all:  $(NAME)
 
