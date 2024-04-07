@@ -5,13 +5,35 @@
 ## .gitignore
 ##
 
+# IDE
 .idea
 .vscode
+
+# Bin
+dump
 mysh
-*.o
-*.gc*
-unit_tests
+
+# Build
+*.out
+*.[aod]
+*.cor
+
+# nix
+.direnv
+.envrc
+.pre-commit-config.yaml
+result
+
+# Cache
+.cache
+.fast
+
+# Coverage
+*.gc??
 testcmd
 tester.sh
 tests
-dump
+unit_tests
+
+# Python (CI)
+*.pyc
