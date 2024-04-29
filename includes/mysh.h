@@ -24,7 +24,7 @@ void get_path2(char **, char *);
 void exec_prog(char **, char **, char **);
 parsed_args_t parse_args(char **);
 char **parse_buffer(char *);
-void launch_shell_tty(char **, size_t, char **);
+void launch_shell_tty(char **, size_t, char **, char *);
 void launch_shell_notty(char **, size_t, char **);
 void print_status(int);
 char **my_setenv(char **, char *, char *);

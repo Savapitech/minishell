@@ -31,14 +31,14 @@ int handle_command(char **args, char ***env, char **path, char **env2)
     return 0;
 }
 
-void launch_shell_tty(char **path, size_t buf_size, char **env)
+void launch_shell_tty(char **path, size_t buf_size, char **env, char *username)
 {
     int getresult;
     char *buffer = NULL;
     char **args;
 
     while (1) {
-        my_printf("$> ");
+        my_printf("%s $> ", username);
         getresult = getline(&buffer, &buf_size, stdin);
         if (my_str_isalpha(buffer) == 0 && my_str_isdigit(buffer) == 0)
             continue;
