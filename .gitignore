@@ -37,3 +37,5 @@ unit_tests
 
 # Python (CI)
 *.pyc
+
+tests.old
