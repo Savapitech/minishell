@@ -38,4 +38,5 @@ unit_tests
 # Python (CI)
 *.pyc
 
+# Test
 tests.old
